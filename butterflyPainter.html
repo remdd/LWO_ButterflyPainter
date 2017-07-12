@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Butterfly painter</title>
+	<link rel="stylesheet" type="text/css" href="butterflyPainter.css">
+	<link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+	<script type="text/javascript" src="FlexiColorPicker-master/colorpicker.js"></script>
+	<script type="text/javascript" src="FileSaver.js-master/FileSaver.js"></script>
+</head>
+<body>
+
+	<div id="canvasDiv">
+		<canvas id="canvas" width="512" height="1024"></canvas>
+	</div>
+
+	<div id="paintControls">
+		<div id="previewAndSizeDiv">
+			<div id="brushPreviewDiv" class="controlDiv">
+				<div class="controlContentDiv">
+					<h2>Brush preview</h2>	
+				</div>
+				<div class="controlContentDiv">
+					<div id="brushPreview"></div>				
+				</div>
+			</div>
+			<div id="brushSizeDiv" class="controlDiv">
+				<h2>Brush size</h2>				
+				<input type="range" id="brushSizeSlider" value="65" min="10" max="120" id="brushSize">
+			</div>
+		</div>
+
+		<div id="colorPicker">
+			<div id="picker"></div>
+			<div id="slider"></div>
+		</div>
+		<div id="paletteDiv">
+			<div class="paletteSquare" id="paletteSquare00"></div>
+			<div class="paletteSquare" id="paletteSquare01"></div>
+			<div class="paletteSquare" id="paletteSquare02"></div>
+			<div class="paletteSquare" id="paletteSquare03"></div>
+			<div class="paletteSquare" id="paletteSquare04"></div>
+			<div class="paletteSquare" id="paletteSquare05"></div>
+			<div class="paletteSquare" id="paletteSquare06"></div>
+			<div class="paletteSquare" id="paletteSquare07"></div>
+			<div class="paletteSquare" id="paletteSquare08"></div>
+			<div class="paletteSquare" id="paletteSquare09"></div>
+			<div class="paletteSquare" id="paletteSquare10"></div>
+			<div class="paletteSquare" id="paletteSquare11"></div>
+			<div class="paletteSquare" id="paletteSquare12"></div>
+			<div class="paletteSquare" id="paletteSquare13"></div>
+			<div class="paletteSquare" id="paletteSquare14"></div>
+			<div class="paletteSquare" id="paletteSquare15"></div>
+		</div>
+
+		<div id="canvasControls">
+			<div id="undoBtn" class="btn bigBtn">
+				<h2>Undo</h2>
+			</div>
+			<div id="clearBtn" class="btn bigBtn">
+				<h2>Start over</h2>
+			</div>
+			<div id="finishBtn" class="btn biggerBtn">
+				<h2>Finish and add butterfly!</h2>
+			</div>
+		</div>
+
+
+	</div>
+
+
+
+
+
+
+	<script
+	  src="https://code.jquery.com/jquery-3.2.1.slim.js"
+	  integrity="sha256-tA8y0XqiwnpwmOIl3SGAcFl2RvxHjA8qp0+1uCGmRmg="
+	  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="butterflyPainter.js"></script>
+</body>
+</html>

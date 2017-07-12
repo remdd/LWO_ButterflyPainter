@@ -1,0 +1,244 @@
+body {
+	background: url("background.jpg");
+	padding: 0;
+	margin: 0;
+	font-family: 'Pangolin', cursive;
+
+}
+h2 {
+	display: flex;
+	margin: 0 auto;
+	padding-bottom: 30px
+}
+#canvasDiv {
+	width: 512px;
+	height: 1024px;
+/*	background-image: url("wingTemplate.png");  */
+	float: left;
+	margin-left: 50px;
+}
+
+#canvas {
+}
+
+/* Brush preview and size */
+#paintControls {
+	width: 1024px;
+	float: left;
+	margin-left: 50px;
+}
+#previewAndSizeDiv {
+	float: left;
+	height: 100%;
+}
+.controlDiv {
+	width: 300px;
+	height: 200px;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-flow: column;
+}
+.controlContentDiv {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	flex-flow: column;
+}
+#brushPreview {
+	width: 65px;
+	height: 65px;
+	border-radius: 200px;
+	background: red;
+	margin: 0 auto;
+}
+
+/* Palette and color picker */
+#paletteDiv {
+	float: left;
+	width: 854px;
+	height: 210px;
+	padding-top: 50px;
+}
+.paletteSquare {
+	width: 98px;
+	height: 96px;
+	margin: 2px;
+	border: 2px solid black;
+	background: red;
+	float: left;
+}
+#colorPicker {
+	float: left;
+	padding-left: 50px;
+}
+#picker {
+	width: 400px;
+	height: 400px;
+	float: left;
+}
+#slider {
+	width: 100px;
+	height: 400px;
+	float: left;
+}
+#paletteSquare00 {
+	background: white;
+} #paletteSquare01 {
+	background: yellow;
+} #paletteSquare02 {
+	background: orange;
+} #paletteSquare03 {
+	background: red;
+} #paletteSquare04 {
+	background: lightpink;
+} #paletteSquare05 {
+	background: purple;
+} #paletteSquare06 {
+	background: lightblue;
+} #paletteSquare07 {
+	background: lightgreen;
+} #paletteSquare08 {
+	background: black;
+} #paletteSquare09 {
+	background: indigo;
+} #paletteSquare10 {
+	background: darkorange;
+} #paletteSquare11 {
+	background: darkgreen;
+} #paletteSquare12 {
+	background: ;
+} #paletteSquare13 {
+	background: lightyellow;
+} #paletteSquare14 {
+	background: skyblue;
+} #paletteSquare15 {
+	background: crimson;
+} 
+
+/* Canvas buttons */
+#canvasControls {
+	padding-top: 50px;
+	width: 100%;
+	height: 250px;
+	clear: both;
+}
+.btn {
+	height: 180px;
+	line-height: 170px;
+	display: flex;
+	text-align: center;
+	border-radius: 40px;
+	float: left;
+}
+.bigBtn {
+	margin-right: 50px;
+	width: 180px;
+	border: 5px solid darkorange;
+	background: linear-gradient(45deg, #ea8b17 0%,#e8bf92 100%);
+}
+.biggerBtn {
+	width: 360px;
+	border: 5px solid darkgreen;
+	background: linear-gradient(45deg, #10a02f 0%,#b0e8ba 100%);
+}
+.btn h2 {
+
+}
+
+
+
+
+
+
+
+
+
+/* Range slider styling */
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 14px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #c8c8c8;
+  border-radius: 1.3px;
+  border: 1px solid #010101;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 2px solid #000000;
+  height: 40px;
+  width: 25px;
+  border-radius: 10px;
+  background: #787878;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -15px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #d5d5d5;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #c8c8c8;
+  border-radius: 1.3px;
+  border: 1px solid #010101;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 2px solid #000000;
+  height: 40px;
+  width: 25px;
+  border-radius: 10px;
+  background: #787878;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 12px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #bbbbbb;
+  border: 1px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-fill-upper {
+  background: #c8c8c8;
+  border: 1px solid #010101;
+  border-radius: 2.6px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 2px solid #000000;
+  height: 40px;
+  width: 25px;
+  border-radius: 10px;
+  background: #787878;
+  cursor: pointer;
+  height: 12px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #c8c8c8;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #d5d5d5;
+}
