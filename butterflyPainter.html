@@ -3,7 +3,7 @@
 <head>
 	<title>Butterfly painter</title>
 	<link rel="stylesheet" type="text/css" href="butterflyPainter.css">
-	<link href="https://fonts.googleapis.com/css?family=Pangolin" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="../LWO_Kiosk/assets/lib/font-awesome-4.7.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="FlexiColorPicker-master/colorpicker.js"></script>
 	<script type="text/javascript" src="FileSaver.js-master/FileSaver.js"></script>
 </head>
@@ -16,7 +16,7 @@
 	<div id="paintControls">
 		<div id="previewAndSizeDiv">
 			<div id="brushPreviewDiv" class="controlDiv">
-				<div class="controlContentDiv">
+				<div class="controlHeaderDiv">
 					<h2>Brush preview</h2>	
 				</div>
 				<div class="controlContentDiv">
@@ -24,8 +24,17 @@
 				</div>
 			</div>
 			<div id="brushSizeDiv" class="controlDiv">
-				<h2>Brush size</h2>				
+				<div class="controlHeaderDiv">
+					<h2>Brush size</h2>
+				</div>				
 				<input type="range" id="brushSizeSlider" value="65" min="10" max="120" id="brushSize">
+			</div>
+			<div>
+				<div class="brushTypeDiv">
+					<i class="fa fa-paint-brush" id="typeBrushBtn" aria-hidden="true"></i>
+					<div><h2>Touch mode</h2></div>
+					<i class="fa fa-eyedropper inactive flipped" id="typeEyedropperBtn" aria-hidden="true"></i>
+				</div>
 			</div>
 		</div>
 

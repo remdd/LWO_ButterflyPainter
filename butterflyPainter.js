@@ -10,6 +10,7 @@ $(document).ready(function(){
 	var curSize = brushPreview.width();
 	var paint = false;
 	var brushStrokes = []
+	var eyedropperMode = false;
 	context = document.getElementById('canvas').getContext("2d");
 	context.imageSmoothingEnabled = false;
 	context.lineJoin = "round";
@@ -17,16 +18,30 @@ $(document).ready(function(){
 	$('#clearBtn').click(clearDown);
 	$('#undoBtn').click(undo);
 	$('#finishBtn').click(finish);
+	$('#typeEyedropperBtn').click(function(){
+		eyedropperMode = true;
+		$(this).removeClass('inactive');
+		$('#typeBrushBtn').addClass('inactive');
+	});
+	$('#typeBrushBtn').click(function(){
+		eyedropperMode = false;
+		$(this).removeClass('inactive');
+		$('#typeEyedropperBtn').addClass('inactive');
+	});
 	wingTemplate(8, true, true, true, false);
 
 	// Mouse controls
 	$('#canvas').on("mousedown touchstart", function(e){
-		var mouseX = e.pageX - this.offsetLeft;
-		var mouseY = e.pageY - this.offsetTop;
-		curColor = brushPreview.css('backgroundColor');
-		paint = true;
-		addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
-		redraw();
+		if(eyedropperMode) {
+			// Add eyedropper code
+		} else {
+			var mouseX = e.pageX - this.offsetLeft;
+			var mouseY = e.pageY - this.offsetTop;
+			curColor = brushPreview.css('backgroundColor');
+			paint = true;
+			addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+			redraw();
+		}
 	});
 	$('#canvas').on("mousemove", function(e){
 		if(paint){
@@ -36,7 +51,7 @@ $(document).ready(function(){
 	});
 	$('#canvas').on("touchmove", function(e){
 		if(paint){
-			addClick(e.touches[0].clientX, e.touches[0].clientY, true);
+			addClick(e.touches[0].clientX - this.offsetLeft, e.touches[0].clientY - this.offsetTop, true);
 			redraw();
 		}
 	});
