@@ -1,9 +1,12 @@
+html {
+/*	zoom: 80%;	*/			/*For laptop demo purposes only - sets master zoom */
+}
+
 body {
 	background: url("background.jpg");
 	padding: 0;
 	margin: 0;
 	font-family: 'Pangolin', cursive;
-
 }
 h2 {
 	display: flex;
@@ -15,7 +18,7 @@ h2 {
 	height: 1024px;
 /*	background-image: url("wingTemplate.png");  */
 	float: left;
-	margin-left: 50px;
+	margin-left: 150px;
 }
 
 #canvas {
@@ -25,7 +28,8 @@ h2 {
 #paintControls {
 	width: 1024px;
 	float: left;
-	margin-left: 50px;
+	margin-left: 150px;
+	margin-top: 80px;
 }
 #previewAndSizeDiv {
 	float: left;
