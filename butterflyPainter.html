@@ -9,73 +9,53 @@
 </head>
 <body>
 
-	<div id="canvasDiv">
-		<canvas id="canvas" width="512" height="1024"></canvas>
-	</div>
+	<div class="allDiv">
+		<div id="canvasDiv">
+			<canvas id="canvas" width="512" height="1024"></canvas>
+		</div>
 
-	<div id="paintControls">
-		<div id="previewAndSizeDiv">
-			<div id="brushPreviewDiv" class="controlDiv">
-				<div class="controlHeaderDiv">
-					<h2>Brush preview</h2>	
+		<div id="paintControlsDiv">
+			<div class="controlContainer brushTypeControl">
+				<div class="brushTypeDiv">
+					<i class="fa fa-paint-brush active" id="typeBrushBtn" aria-hidden="true"></i>
+					<p class="iconLabelText">Paint mode</p>
+					<p class="iconLabelText iconLabelSubtext">Tap to paint your butterfly.</p>
 				</div>
-				<div class="controlContentDiv">
+				<div class="brushTypeDiv">
+					<i class="fa fa-eyedropper inactive" id="typeEyedropperBtn" aria-hidden="true"></i>		
+					<p class="iconLabelText">Eyedropper mode</p>
+					<p class="iconLabelText iconLabelSubtext">Tap to re-select a colour that you've already used.</p>
+				</div>
+			</div>
+			<div class="controlContainer brushPreviewControl">
+				<p class="labelText">Brush preview</p>
+				<div id="brushPreviewContainer">
 					<div id="brushPreview"></div>				
 				</div>
 			</div>
-			<div id="brushSizeDiv" class="controlDiv">
-				<div class="controlHeaderDiv">
-					<h2>Brush size</h2>
-				</div>				
+			<div class="controlContainer brushSizeControl">
+				<p class="labelText">Brush size</p>
 				<input type="range" id="brushSizeSlider" value="65" min="10" max="120" id="brushSize">
 			</div>
-			<div>
-				<div class="brushTypeDiv">
-					<i class="fa fa-paint-brush" id="typeBrushBtn" aria-hidden="true"></i>
-					<div><h2>Touch mode</h2></div>
-					<i class="fa fa-eyedropper inactive flipped" id="typeEyedropperBtn" aria-hidden="true"></i>
-				</div>
-			</div>
+
+			<span id="paletteLabel">Tap the palettes to pick a colour.</span>
+		    <div id="picker"></div>
+		    <div id="slider"></div>
 		</div>
 
-		<div id="colorPicker">
-			<div id="picker"></div>
-			<div id="slider"></div>
-		</div>
-		<div id="paletteDiv">
-			<div class="paletteSquare" id="paletteSquare00"></div>
-			<div class="paletteSquare" id="paletteSquare01"></div>
-			<div class="paletteSquare" id="paletteSquare02"></div>
-			<div class="paletteSquare" id="paletteSquare03"></div>
-			<div class="paletteSquare" id="paletteSquare04"></div>
-			<div class="paletteSquare" id="paletteSquare05"></div>
-			<div class="paletteSquare" id="paletteSquare06"></div>
-			<div class="paletteSquare" id="paletteSquare07"></div>
-			<div class="paletteSquare" id="paletteSquare08"></div>
-			<div class="paletteSquare" id="paletteSquare09"></div>
-			<div class="paletteSquare" id="paletteSquare10"></div>
-			<div class="paletteSquare" id="paletteSquare11"></div>
-			<div class="paletteSquare" id="paletteSquare12"></div>
-			<div class="paletteSquare" id="paletteSquare13"></div>
-			<div class="paletteSquare" id="paletteSquare14"></div>
-			<div class="paletteSquare" id="paletteSquare15"></div>
-		</div>
-
-		<div id="canvasControls">
-			<div id="undoBtn" class="btn bigBtn">
-				<h2>Undo</h2>
+		<div id="canvasControlsDiv">
+			<div id="undoBtn" class="btn roundBtn">
+				<span>Undo</span>
 			</div>
 			<div id="clearBtn" class="btn bigBtn">
-				<h2>Start over</h2>
+				<span>Abandon and start again</span>
 			</div>
 			<div id="finishBtn" class="btn biggerBtn">
-				<h2>Finish and add butterfly!</h2>
+				<span>Finish and add butterfly!</span>
 			</div>
 		</div>
-
-
 	</div>
-
+		
 
 
 

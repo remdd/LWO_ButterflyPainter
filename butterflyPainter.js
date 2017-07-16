@@ -11,6 +11,7 @@ $(document).ready(function(){
 	var paint = false;
 	var brushStrokes = []
 	var eyedropperMode = false;
+	var eyedropperPicking = false;
 	context = document.getElementById('canvas').getContext("2d");
 	context.imageSmoothingEnabled = false;
 	context.lineJoin = "round";
@@ -18,49 +19,85 @@ $(document).ready(function(){
 	$('#clearBtn').click(clearDown);
 	$('#undoBtn').click(undo);
 	$('#finishBtn').click(finish);
-	$('#typeEyedropperBtn').click(function(){
-		eyedropperMode = true;
-		$(this).removeClass('inactive');
-		$('#typeBrushBtn').addClass('inactive');
-	});
-	$('#typeBrushBtn').click(function(){
-		eyedropperMode = false;
-		$(this).removeClass('inactive');
-		$('#typeEyedropperBtn').addClass('inactive');
-	});
+	$('#typeEyedropperBtn').click(startEyeDropperMode);
+	$('#typeBrushBtn').click(endEyeDropperMode);
 	wingTemplate(8, true, true, true, false);
 
+	function startEyeDropperMode () {
+		$('#typeBrushBtn').removeClass('active');
+		$('#typeBrushBtn').addClass('inactive');
+		$('#typeEyedropperBtn').removeClass('inactive');
+		$('#typeEyedropperBtn').addClass('active');
+		eyedropperMode = true;
+	}
+	function endEyeDropperMode () {
+		$('#typeBrushBtn').removeClass('inactive');
+		$('#typeBrushBtn').addClass('active');
+		$('#typeEyedropperBtn').removeClass('active');
+		$('#typeEyedropperBtn').addClass('inactive');
+		eyedropperMode = false;
+	}
+
 	// Mouse controls
-	$('#canvas').on("mousedown touchstart", function(e){
+	$('#canvas').on("mousedown", function(e){
+		var mouseX = e.pageX - this.offsetLeft;
+		var mouseY = e.pageY - this.offsetTop;
 		if(eyedropperMode) {
-			// Add eyedropper code
+			eyedropperPicking = true;
+			getCanvasColor(mouseX, mouseY);
 		} else {
-			var mouseX = e.pageX - this.offsetLeft;
-			var mouseY = e.pageY - this.offsetTop;
 			curColor = brushPreview.css('backgroundColor');
 			paint = true;
-			addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop);
+			addClick(mouseX, mouseY);
 			redraw();
 		}
 	});
 	$('#canvas').on("mousemove", function(e){
-		if(paint){
-			addClick(e.pageX - this.offsetLeft, e.pageY - this.offsetTop, true);
+		var mouseX = e.pageX - this.offsetLeft;
+		var mouseY = e.pageY - this.offsetTop;
+		if(eyedropperMode && eyedropperPicking) {
+			getCanvasColor(mouseX, mouseY);
+		} else if(paint){
+			addClick(mouseX, mouseY, true);
+			redraw();
+		}
+	});
+	// Touch controls
+	$('#canvas').on("touchstart", function(e){
+		var mouseX = e.touches[0].clientX - this.offsetLeft;
+		var mouseY = e.touches[0].clientY - this.offsetTop;
+		if(eyedropperMode) {
+			eyedropperPicking = true;
+			getCanvasColor(mouseX, mouseY);
+		} else {
+			curColor = brushPreview.css('backgroundColor');
+			paint = true;
+			addClick(mouseX, mouseY);
 			redraw();
 		}
 	});
 	$('#canvas').on("touchmove", function(e){
-		if(paint){
-			addClick(e.touches[0].clientX - this.offsetLeft, e.touches[0].clientY - this.offsetTop, true);
+		var mouseX = e.touches[0].clientX - this.offsetLeft;
+		var mouseY = e.touches[0].clientY - this.offsetTop;
+		if(eyedropperMode && eyedropperPicking) {
+			getCanvasColor(mouseX, mouseY);
+		} else if(paint){
+			addClick(mouseX, mouseY, true);
 			redraw();
 		}
 	});
-	$('#canvas').on("mouseup touchend touchcancel", function(e){
+	// Mouse & touch controls
+	$(document).on("mouseup touchend touchcancel", function(e){
 		paint = false;
+		eyedropperPicking = false;
+		endEyeDropperMode();
 	});
-	$('#canvas').mouseleave(function(e){
-		paint = false;
-	});
+
+	function getCanvasColor(mouseX, mouseY) {
+		var touchData = context.getImageData(mouseX, mouseY, 1, 1);
+		var touchColor = 'rgba(' + touchData.data[0] + ',' + touchData.data[1] +',' + touchData.data[2] + ',' + touchData.data[3] + ')';
+		brushPreview.css('backgroundColor', touchColor);
+	}
 
 	function addClick(x, y, dragging)
 	{
