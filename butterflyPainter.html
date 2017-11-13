@@ -4,8 +4,12 @@
 	<title>Butterfly painter</title>
 	<link rel="stylesheet" type="text/css" href="butterflyPainter.css">
 	<link rel="stylesheet" type="text/css" href="../LWO_Kiosk/assets/lib/font-awesome-4.7.0/css/font-awesome.min.css">
-	<script type="text/javascript" src="FlexiColorPicker-master/colorpicker.js"></script>
+	<script type="text/javascript" src="../LWO_Kiosk/assets/lib/jQuery/jquery-3.2.1.js"></script>
+	<script type="text/javascript" src="FlexiColorPicker-master/colorpicker-butterfly.js"></script>
 	<script type="text/javascript" src="FileSaver.js-master/FileSaver.js"></script>
+
+<link href="https://fonts.googleapis.com/css?family=Londrina+Solid" rel="stylesheet">
+
 </head>
 <body>
 
@@ -23,7 +27,7 @@
 				</div>
 				<div class="brushTypeDiv">
 					<i class="fa fa-eyedropper inactive" id="typeEyedropperBtn" aria-hidden="true"></i>		
-					<p class="iconLabelText">Eyedropper mode</p>
+					<p class="iconLabelText">Picker mode</p>
 					<p class="iconLabelText iconLabelSubtext">Tap to re-select a colour that you've already used.</p>
 				</div>
 			</div>
@@ -44,14 +48,17 @@
 		</div>
 
 		<div id="canvasControlsDiv">
-			<div id="undoBtn" class="btn roundBtn">
-				<span>Undo</span>
+			<div id="undoBtn" class="btn">
+				<p class="bigText">Undo</p>
+				<p>your last brushstroke</p>
 			</div>
-			<div id="clearBtn" class="btn bigBtn">
-				<span>Abandon and start again</span>
+			<div id="clearBtn" class="btn">
+				<p class="bigText">Clear all</p>
+				<p>and start again</p>
 			</div>
-			<div id="finishBtn" class="btn biggerBtn">
-				<span>Finish and add butterfly!</span>
+			<div id="finishBtn" class="btn">
+				<p class="bigText">Finish</p>
+				<p>and add your butterfly!</p>
 			</div>
 		</div>
 	</div>
