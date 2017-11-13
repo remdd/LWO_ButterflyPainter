@@ -29,9 +29,17 @@
     function mousePosition(evt) {
         // IE:
         console.log(evt.type);
-        if (evt.type === "touchmove") {
-            var x = event.touches[0].clientX - 700;
-            var y = event.touches[0].clientY - 500;
+        console.log(evt);
+        if (evt.type === "touchmove" && evt.path[2].id === 'slider') {
+            var x = event.touches[0].clientX - $('#slider').offset().left;
+            var y = event.touches[0].clientY - $('#slider').offset().top;
+            console.log('slider!');
+            console.log(x + ', ' + y);
+            return { x, y };
+        } else if (evt.type === "touchmove" && evt.path[2].id === 'picker') {
+            var x = event.touches[0].clientX - $('#picker').offset().left;
+            var y = event.touches[0].clientY - $('#picker').offset().top;
+            console.log('picker!');
             console.log(x + ', ' + y);
             return { x, y };
         }
@@ -42,7 +50,6 @@
         if (evt.offsetX !== undefined && evt.offsetY !== undefined) {
             var y = evt.offsetX;
             var x = evt.offsetY;
-            console.log(x, y);
             return { x: evt.offsetX, y: evt.offsetY };
         }
         // Firefox:
@@ -199,7 +206,6 @@
             evt = evt || window.event;
             var mouse = mousePosition(evt);
             ctx.h = mouse.y / slideElement.offsetHeight * 360 + hueOffset;
-            console.log(ctx.h);
             var pickerColor = hsv2rgb({ h: ctx.h, s: 1, v: 1 });
             var c = hsv2rgb({ h: ctx.h, s: ctx.s, v: ctx.v });
             pickerElement.style.backgroundColor = pickerColor.hex;

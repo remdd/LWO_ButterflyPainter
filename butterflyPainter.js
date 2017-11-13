@@ -21,6 +21,7 @@ $(document).ready(function(){
 	$('#typeBrushBtn').click(endEyeDropperMode);			//	Brush mode button
 
 	wingTemplate(8, true, true);				//	Draw wing template
+	$brushPreview.css('background', 'yellow');	//	Set initial brush colour
 
 	function addClick(x, y)	{
 		var click = { x: x, y: y }				//	Set latest click co-ordinates
@@ -68,6 +69,7 @@ $(document).ready(function(){
 	function touchCanvas(x, y) {
 		if(eyedropperMode) {
 			eyedropperPicking = true;
+			console.log("Getting canvas color from " + x + ", " + y);
 			getCanvasColor(x, y);
 		} else {
 			paint = true;
@@ -121,6 +123,7 @@ $(document).ready(function(){
 	//	Update brush preview colour (used by eyedropper mode as well as palettes)
 	function getCanvasColor(mouseX, mouseY) {
 		var touchData = context.getImageData(mouseX, mouseY, 1, 1);
+		console.log(touchData);
 		var touchColor = 'rgba(' + touchData.data[0] + ',' + touchData.data[1] +',' + touchData.data[2] + ',' + touchData.data[3] + ')';
 		$brushPreview.css('backgroundColor', touchColor);
 	}
@@ -197,18 +200,10 @@ $(document).ready(function(){
 	ColorPicker(
 		document.getElementById('slider'),
 		document.getElementById('picker'),
-
 		function(hex, hsv, rgb) {
 //			console.log(hsv.h, hsv.s, hsv.v);         // [0-359], [0-1], [0-1]
 //			console.log(rgb.r, rgb.g, rgb.b);         // [0-255], [0-255], [0-255]
 			$brushPreview.css('backgroundColor', hex);
-	});
-
-	//	Update brush preview colour on touchdrag along colour slider
-	$('#slider').on('touchmove', function(e){
-		var mouseX = e.touches[0].clientX;
-		var mouseY = e.touches[0].clientY;
-		getCanvasColor(mouseX, mouseY);
 	});
 
 	//	Define wing outline as border of canvas context & clip strokes within it

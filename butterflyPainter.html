@@ -4,8 +4,9 @@
 	<title>Butterfly painter</title>
 	<link rel="stylesheet" type="text/css" href="butterflyPainter.css">
 	<link rel="stylesheet" type="text/css" href="../LWO_Kiosk/assets/lib/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/css?family=Margarine" rel="stylesheet">
 	<script type="text/javascript" src="../LWO_Kiosk/assets/lib/jQuery/jquery-3.2.1.js"></script>
-	<script type="text/javascript" src="FlexiColorPicker-master/colorpicker-butterfly.js"></script>
+	<script type="text/javascript" src="FlexiColorPicker-master/colorpicker.js"></script>
 	<script type="text/javascript" src="FileSaver.js-master/FileSaver.js"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Londrina+Solid" rel="stylesheet">
@@ -20,16 +21,12 @@
 
 		<div id="paintControlsDiv">
 			<div class="controlContainer brushTypeControl">
-				<div class="brushTypeDiv">
-					<i class="fa fa-paint-brush active" id="typeBrushBtn" aria-hidden="true"></i>
-					<p class="iconLabelText">Paint mode</p>
-					<p class="iconLabelText iconLabelSubtext">Tap to paint your butterfly.</p>
-				</div>
-				<div class="brushTypeDiv">
-					<i class="fa fa-eyedropper inactive" id="typeEyedropperBtn" aria-hidden="true"></i>		
-					<p class="iconLabelText">Picker mode</p>
-					<p class="iconLabelText iconLabelSubtext">Tap to re-select a colour that you've already used.</p>
-				</div>
+				<i class="fa fa-paint-brush active" id="typeBrushBtn" aria-hidden="true"></i>
+				<p class="iconLabelText">Paint mode</p>
+				<p class="iconLabelText iconLabelSubtext">Tap to paint your butterfly.</p>
+				<i class="fa fa-eyedropper inactive" id="typeEyedropperBtn" aria-hidden="true"></i>		
+				<p class="iconLabelText">Picker mode</p>
+				<p class="iconLabelText iconLabelSubtext">Tap to re-select a colour that you've already used.</p>
 			</div>
 			<div class="controlContainer brushPreviewControl">
 				<p class="labelText">Brush preview</p>
