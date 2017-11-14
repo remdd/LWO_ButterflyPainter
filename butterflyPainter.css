@@ -1,3 +1,8 @@
+@font-face {
+	font-family: 'Margarine';
+	src: url('assets/Margarine-Regular.ttf') format('truetype');
+}
+
 html {
 /*	zoom: 80%;				/*For laptop demo purposes only - sets master zoom */
 	user-select: none;
