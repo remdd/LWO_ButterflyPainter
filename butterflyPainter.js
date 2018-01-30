@@ -180,6 +180,10 @@ $(document).ready(function(){
 
 	//	Export current canvas context to file, clear down & reset for next user
 	function finish() {
+		$('#finishBtn').attr('disabled', true);
+		setTimeout(function() {
+			$('#finishBtn').attr('disabled', false);
+		}, 5000);																			//	Re-enable button after 5 seconds
 		console.log("finishing...");
 		wingTemplate(8, false, false);
 		canvas.toBlob(function(blob) {
@@ -197,7 +201,7 @@ $(document).ready(function(){
 
 	// Initialize color picker
 	$('#colorPicker').show();
-	ColorPicker(
+	var cp = ColorPicker(
 		document.getElementById('slider'),
 		document.getElementById('picker'),
 		function(hex, hsv, rgb) {
@@ -205,6 +209,7 @@ $(document).ready(function(){
 //			console.log(rgb.r, rgb.g, rgb.b);         // [0-255], [0-255], [0-255]
 			$brushPreview.css('backgroundColor', hex);
 	});
+	cp.setHsv({ h: 180, s: 1, v: 1});					//	Set initial colour
 
 	//	Define wing outline as border of canvas context & clip strokes within it
 	function wingTemplate(linewidth, fill, clip) {

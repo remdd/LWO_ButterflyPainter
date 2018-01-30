@@ -122,6 +122,7 @@ span {
 	position: absolute;
 	top: 0;
 	right: 0;
+	border: 5px solid rgb(40,40,40);
 }
 #slider {
 	width: 150px;
@@ -130,6 +131,7 @@ span {
 	position: absolute;
 	right: 475px;
 	top: 40px;
+	border: 5px solid rgb(40,40,40);
 } #paletteLabel {
 	position: absolute;
 	top: 440px;
@@ -155,36 +157,42 @@ span {
 
 /* Canvas buttons */
 .btn {
+	font-family: 'Margarine', cursive;
 	height: 180px;
 	display: flex;
 	align-items: center;
 	flex-direction: column;
 	justify-content: center;
-	border-radius: 40px;
+	border-radius: 20px;
 	float: left;
 	font-size: 0.9em;
+	border: 5px solid rgb(40,40,40);
+	box-shadow: 0 4px 0 rgb(80,80,80), 0 4px 20px rgb(20,20,20);
+	outline: none !important;
 } .btn p {
 	margin: 0;
 	text-align: center;
 	text-shadow: none;
-} .bigText {
+} .btn:active {
+	transform: translateY(2px);
+	box-shadow: 0 0px 0 rgb(80,80,80), 0 4px 20px rgb(20,20,20);
+}
+
+ .bigText {
 	font-size: 2em;
 }
 #undoBtn {
 	margin-right: 50px;
 	width: 310px;
-	border: 5px solid darkorange;
 	background: linear-gradient(45deg, #ea8b17 0%,#e8bf92 100%);
 }
 #clearBtn {
 	margin-right: 50px;
 	width: 310px;
-	border: 5px solid darkorange;
 	background: linear-gradient(45deg, #ea8b17 0%,#e8bf92 100%);
 }
 #finishBtn {
 	width: 330px;
-	border: 5px solid darkgreen;
 	background: linear-gradient(45deg, #10a02f 0%,#b0e8ba 100%);
 }
 

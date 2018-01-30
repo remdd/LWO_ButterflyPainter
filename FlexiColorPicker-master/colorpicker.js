@@ -204,7 +204,7 @@
                 offsetY  = elemRect.top - bodyRect.top,
                 offsetX  = elemRect.left - bodyRect.left;
 
-            ctx.h = (mouse.x - offsetX) / (elemRect.right - elemRect.left) * 360;
+            ctx.h = (mouse.x - offsetX) / (elemRect.right - elemRect.left) * 360 + hueOffset;
             var pickerColor = hsv2rgb({ h: ctx.h, s: 1, v: 1 });
             var c = hsv2rgb({ h: ctx.h, s: ctx.s, v: ctx.v });
             pickerElement.style.backgroundColor = pickerColor.hex;
